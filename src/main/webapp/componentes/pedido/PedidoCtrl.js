@@ -34,7 +34,7 @@ appCrudAngular.controller('PedidoCtrl',function($scope,$http) {
     };
 
     $scope.listarCliente = function(){
-      $http.get('./ws/cliente/lista').success(function (dados){
+      $http.get('/ws/cliente/lista').success(function (dados){
             $scope.clientes = dados;
         });
     };
