@@ -6,6 +6,8 @@ appCrudAngular.controller('ClienteCtrl', function($scope, $http){
 
     $scope.clientes = {};//Lista de clientes que estão vinculados a tela
     $scope.cliente = {};//Objeto de cliente vinculado a tela
+    $scope.estadoSelect = {};
+    $scope.estado = {};
 
    $scope.listar = function(){
        $http.get("ws/cliente/lista").success(function(dados){
@@ -13,9 +15,19 @@ appCrudAngular.controller('ClienteCtrl', function($scope, $http){
        });
    };
 
+    $scope.listaEstados = function(){
+        $http.get("ws/estado/lista").success(function(dados){
+            $scope.estados = dados;
+
+        });
+
+    }
+
     //metodo salvar cliente
     $scope.salvar = function(){
-       $http.post("ws/cliente/salvar", $scope.cliente).success(function(dados){
+       $scope.cliente.IdEstado = $scope.estadoSelect;
+
+        $http.post("ws/cliente/salvar", $scope.cliente).success(function(dados){
            window.alert("salvo com sucesso");
            $scope.cliente= {};
            $scope.listar();
@@ -24,6 +36,8 @@ appCrudAngular.controller('ClienteCtrl', function($scope, $http){
     };
 
     $scope.listar();
+    $scope.listaEstados();
+
 
     $scope.excluir =  function (id){$http.delete("ws/cliente/excluir/"+ id).success(function (){ $scope.listar(); });};
 

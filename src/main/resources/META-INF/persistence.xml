@@ -8,6 +8,7 @@
         <class>br.com.larimaia.entity.Pedido</class>
         <class>br.com.larimaia.entity.ItemPedido</class>
         <class>br.com.larimaia.entity.Produto</class>
+        <class>br.com.larimaia.entity.Estado</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/lm_bemcasado"/>
             <property name="javax.persistence.jdbc.user" value="postgres"/>

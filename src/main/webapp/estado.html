@@ -1,0 +1,53 @@
+<html ng-app="appCrudAngular">
+<head>
+
+
+    <link rel="stylesheet" href="bower_components/angular/angular-csp.css">
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+
+</head>
+
+<body ng-controller="EsdadoController">
+<form>
+
+        <label>Nome: </label>
+        <input type="text" class="form-control" ng-model="estado.nome"/>
+
+
+
+        <label>Uf: </label>
+        <input type="text" class="form-control" ng-model="estado.uf"/>
+
+
+
+
+    <button  ng-click="salvar()" title="salvar">Salvar</button>
+
+</form>
+
+<div ng-cloak>
+    <md-content>
+        <md-list>
+            <md-list-item class="md-3-line md-long-text" ng-repeat="cliente in estados">
+
+                <div class="md-list-item-text">
+                    {{"ID:"+estado.id + " / "+ "Nome:"+estado.nome + " / " + "UF:"+estado.uf  }}
+
+
+                    <button ng-click="excluir(estado.id)"> Excluir</button>
+                    <button ng-click="editar(estado)"> Editar</button>
+
+                </div>
+
+
+            </md-list-item>
+        </md-list>
+    </md-content>
+</div>
+
+<script src="bower_components/angular/angular.min.js"></script>
+
+<script src="controller/app.js"></script>
+<script src="controller/EstadoController.js"></script>
+</body>

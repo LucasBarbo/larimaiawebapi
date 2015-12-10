@@ -35,6 +35,9 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "idCliente")
     private Collection<Pedido> pedidoCollection;
 
+    @ManyToOne
+    private Estado IdEstado;
+
     public Cliente() {
     }
 
@@ -48,6 +51,9 @@ public class Cliente implements Serializable {
         this.telefone = telefone;
         this.email = email;
     }
+
+    public void setIdEstado(Estado estado){this.IdEstado = estado;}
+    public Estado getIdEstado(){return this.IdEstado;}
 
     public Integer getIdCliente() {
         return idCliente;
